@@ -1,0 +1,53 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.mincor.login"
+        minSdkVersion 17
+        targetSdkVersion 28
+        versionCode 10001
+        versionName "1.0.1"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    kotlin { experimental { coroutines 'enable' } }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:28.0.0-alpha3'
+    implementation "com.android.support:design:28.0.0-alpha3"
+
+    implementation "com.rasalexman.flairframework:flairframework:$flairVersion"
+
+    // Anko Layouts
+    implementation "org.jetbrains.anko:anko-sdk25:$ankoVersion"
+    // sdk15, sdk19, sdk21, sdk23 are also available
+    implementation "org.jetbrains.anko:anko-appcompat-v7:$ankoVersion"
+    // Coroutine listeners for Anko Layouts
+    implementation "org.jetbrains.anko:anko-sdk25-coroutines:$ankoVersion"
+    implementation "org.jetbrains.anko:anko-appcompat-v7-coroutines:$ankoVersion"
+    // Design
+    implementation "org.jetbrains.anko:anko-design:$ankoVersion"
+    //  Drawable DSL
+    implementation "com.github.infotech-group:android-drawable-dsl:0.3.0"
+
+    // KOT PREF
+    implementation "com.chibatching.kotpref:kotpref:$kotprefVersion"
+
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}

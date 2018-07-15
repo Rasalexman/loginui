@@ -48,7 +48,7 @@ class RegistrationMediator : Mediator() {
             nameET!!.error = stringRes(R.string.notSetNameTF)
             focusView = nameET
             cancel = true
-        } else if (emailStr.isEmpty()) {
+        } else if (emailStr.isEmpty() || !emailStr.isEmailValid()) {
             emailET!!.error = stringRes(R.string.notSetEmailTF)
             focusView = emailET
             cancel = true
